@@ -1,0 +1,142 @@
+//* Hernandez Pacheco Ali Joshua                                        Fecha: 24/01/2021 *//
+//* Proyecto Final                                                                        *//  
+   
+//* Codigo para concoer algunas propiedades de rocas sedimentarias encontradas en algun afloramiento*// 
+
+#include <stdio.h>
+
+int main(){
+    FILE *fp;
+    fp = fopen("MINA.txt","w+");
+
+    if(fp == NULL){
+        printf("ERROR");
+        return 1;
+    }
+
+    int a,b,c,d,e,f,g,h;
+
+	printf ("\t===BUSQUEDA DE UN AFLORAMIENTO PARA ROCAS SEDIMENTARIAS===\n\n ");
+	fprintf(fp,"\t***********************************************************\n");
+	fprintf(fp,"\t===BUSQUEDA DE UN AFLORAMIENTO PARA ROCAS SEDIMENTARIAS===\n");
+    fprintf(fp,"\t***********************************************************\n\n");
+	printf ("SE ENCONTRO UN AFLORAMIENTO?\n"
+            "1) SI\n"
+            "2) NO\n");
+    scanf(" %i",&a);
+    do{
+    if (a==1){
+        fprintf(fp,"\t============================================================\n");
+        fprintf(fp,"\tSE ENCONTRO UN AFLORAMIENTO" );
+        printf("\nQUE TIPOS DE AFLORAMIENTO HAY?\n"
+               "1) AFLORAMIENTO DE ROCAS IGNEAS\n"
+               "2) AFLORAMIENTO DE ROCAS SEDIMENTARIAS\n"
+               "3) AFLORAMIENTO DE ROCAS METAMORFICAS\n ");
+        scanf("%i",&b);
+        if(b==2){
+            fprintf(fp," DE ROCAS SEDIMENTARIAS\n");
+            printf("QUE TIPOS DE ROCAS HAY?\n"
+                   "1) ROCAS DETRITICAS\n"
+                   "2) ROCAS QUIMICAS\n");
+            scanf("%i",&d);
+            if(d==1){
+                fprintf(fp,"\tDE TIPO DETRITICAS:\n");
+                do{
+                printf("\n1)CONGLOMERADO\n"
+                       "2)BRECHA\n"
+                       "3)ARENISCA\n"
+                       "4)LIMOLITA\n"
+                       "5)LUTITA\n");
+                scanf("%i",&e);
+                switch(e){
+                case 1:
+                    fprintf(fp,"\tCONGLOMERADAS:\n\t-TAMANIO DEL CLASTO: mas de 2mm\n\t-GRAVA(CLASTOS REDONDEADOS)\n\t-MATRIZ DE ARENA O ARCILLA \n\n");
+                    printf("CARACTERISTICAS\n");
+                    printf(" -TAMANIO DEL CLASTO: mas de 2mm\n -GRAVA(CLASTOS REDONDEADOS)\n -MATRIZ DE ARENA O ARCILLA\n ");
+                    break;
+                case 2:
+                    fprintf(fp,"\tBRECHAS:\n\t-TAMANIO DEL CLASTO: mas de 2mm\n\t-GRAVA (CLASTOS ANGULOSOS)\n\n");
+                    printf("CARACTERISTICAS\n");
+                    printf(" -TAMANO DEL CLASTO: mas de 2mm\n -GRAVA (CLASTOS ANGULOSOS)\n");
+
+                    break;
+                case 3:
+                    fprintf(fp,"\tARENISCA:\n\t-TAMANO DEL CLASTO: de 1/16 a 2 mm\n\t-SEDIMENTOS DE ARENA\n\t-SI EL FELDESPATO ES ABUNDANTE LA ROCA SE DENOMINA ARCOSA\n\n");
+                    printf("CARACTERISTICAS\n");
+                    printf(" -TAMANO DEL CLASTO: de 1/16 a 2 mm\n -SEDIMENTOS DE ARENA\n -SI EL FELDESPATO ES ABUNDANTE LA ROCA SE DENOMINA ARCOSA\n");
+
+                    break;
+                case 4:
+                    fprintf(fp,"\tLIMOLITA:\n\t-TAMANO DEL CLASTO: fino(de 1/16 a 1/256 mm)\n\t-NOMBRE DEL SEDIENTO:(limo))\n\n");
+                    printf("CARACTERISTICAS\n");
+                    printf(" -TAMANO DEL CLASTO: fino(de 1/16 a 1/256 mm)\n -NOMBRE DEL SEDIENTO: (limo))\n");
+
+                    break;
+                case 5:
+                    fprintf(fp,"\tLUTITA:\n\t-TAMANO DEL CLASTO: muy fino(menos de 1/256 mm)\n\t-NOBRE DEL SEDIMENTO: arcilla\n");
+                    printf("CARACTERISTICAS\n");
+                    printf(" -TAMANO DEL CLASTO: muy fino(menos de 1/256 mm)\n -NOBRE DEL SEDIMENTO: arcilla");
+
+                    break;
+                }
+            printf("\nDESEA AGREGAR OTRA ROCA?\n1)SI\n2)NO\n");
+            scanf("%i",&g);
+            }while(g!=2);
+            }else{
+             fprintf(fp,"\tDE TIPO QUIMICAS:\n");
+            do{
+                printf("\n1)COQUINA\n"
+                       "2)CALIZA FOSILIFERA\n"
+                       "3)YESO\n"
+                       "4)SALGEMA\n");
+
+              scanf("%i",&f);
+                switch(f){
+                case 1:
+                    fprintf(fp,"\tCOQUINA:\n\t-TEXTURA CLASTICA\n\t-CAPARAZONES Y FRACMENTOS DE CAPARAZON VISIBLES,SECMENTADO DEBILMENTE\n\t-COMPOSICION:CaCO3\n\n");
+                    printf("CARACTERISTICAS\n");
+                    printf(" -TEXTURA CLASTICA\n -CAPARAZONES Y FRACMENTOS DE CAPARAZON VISIBLES, SECMENTADO DEBILMENTE\n -COMPOSICION:CaCO3\n");
+
+                    break;
+                case 2:
+                    fprintf(fp,"\tCALIZA FOSILIFERA:\n\t-TEXTURA CLASTICA\n\t-CAPARAZONES Y FRACMENTOS DE CAPARAZON DE DIVERSOS TAMANIOS SECMENTADOS CON CEMENTO DE CALCITA\n\t-COMPOSICION:CaCO3\n\n");
+                    printf("CARACTERISTICAS\n");
+                    printf(" -TEXTURA CLASTICA\n -CAPARAZONES Y FRACMENTOS DE CAPARAZON DE DIVERSOS TAMANIOS SECMENTADOS CON CEMENTO DE CALCITA\n -COMPOSICION:CaCO3\n");
+
+                    break;
+                case 3:
+                    fprintf(fp,"\tYESO:\n\t-TEXTURA NO CLASTICA\n\t-CRISTALINA DE FINO A GRUESO\n\t-COMPOSICION:CaSO4\n\n");
+                    printf("CARACTERISTICAS\n");
+                    printf(" -TEXTURA NO CLASTICA\n -CRISTALINA DE FINO A GRUESO\n -COMPOSICION: CaSO4\n");
+
+                    break;
+                case 4:
+                    fprintf(fp,"\tSALGEMA:\n\t-TEXTURA NO CLASTICA\n\t-CRISTALINA DE FINA A GRUESA\n\t-COMPOSICION:NaCL\n\n");
+                    printf("CARACTERISTICAS\n");
+                    printf("-TEXTURA NO CLASTICA\n -CRISTALINA DE FINA A GRUESA\n -COMPOSICION: NaCL\n");
+
+                    break;
+                }
+            printf("\nDESEA AGREGAR OTRA ROCA?\n1)SI\n2)NO\n");
+            scanf("%i",&h);
+            }while(h!=2);
+        }
+        }else{
+            if(b==1){
+                fprintf(fp," DE ROCAS IGNEAS\n\t ***NO SE PUEDE PROCEDER CON LA INVESTIGACION***\n\n");
+            }
+            if(b==3){
+                fprintf(fp," DE ROCAS METAMORFICAS\n\t ***NO SE PUEDE PROCEDER CON LA INVESTIGACION***\n\n");
+            }
+            printf("--NO SE PUEDE PROCEDER CON LA INVESTIGACION--\n\n");
+        }
+    }
+
+    printf("DESEAS REPETIR\n 1)SI\n 2)NO\n ");
+    scanf("%i",&c);
+    }while(c!=2);
+  fprintf(fp,"\t_________________________________________________________________");
+  fclose(fp);
+return 0;
+}
+
